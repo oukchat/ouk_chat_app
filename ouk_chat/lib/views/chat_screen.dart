@@ -15,7 +15,7 @@ class ChatScreen extends GetView<ChatController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('채팅방 ${room.id}'),
+        title: Text('채팅방 ${room.id}', style: TextStyle(fontFamily: 'Retrosans'),),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Get.back(),
@@ -45,7 +45,7 @@ class ChatScreen extends GetView<ChatController> {
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           "답변을 기다리는 중...",
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey, fontFamily: 'Retrosans'),
                         ),
                       ),
                     );
@@ -68,7 +68,7 @@ class ChatScreen extends GetView<ChatController> {
                           ),
                           child: Text(
                             message.text,
-                            style: const TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16, fontFamily: 'Retrosans'),
                           ),
                         ),
                         if (!isUser && message.sources != null && message.sources!.isNotEmpty)
@@ -87,7 +87,7 @@ class ChatScreen extends GetView<ChatController> {
                                           Chip(
                                             label: Text(
                                               source.title,
-                                              style: const TextStyle(color: Colors.blue),
+                                              style: const TextStyle(color: Colors.blue, fontFamily: 'Retrosans'),
                                             ),
                                             backgroundColor: Colors.blue[50],
                                           ),

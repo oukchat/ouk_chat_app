@@ -11,7 +11,7 @@ class RoomListScreen extends GetView<RoomListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('내 채팅방')),
+      appBar: AppBar(title: const Text('내 채팅방', style: TextStyle(fontFamily: 'Retrosans'))),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
@@ -21,8 +21,8 @@ class RoomListScreen extends GetView<RoomListController> {
           itemBuilder: (context, index) {
             if(index == 0) {
               return ListTile(
-                title: Text('새 채팅'),
-                trailing: Icon(Icons.add),
+                title: Text('새 채팅', style: TextStyle(fontFamily: 'Retrosans'),),
+                trailing: Icon(Icons.add, size: 25, weight: 40,),
                 onTap: () async {
                   final newRoom = await controller.createNewRoom();
                   Get.to(() => ChatScreen(room: newRoom),
@@ -36,8 +36,8 @@ class RoomListScreen extends GetView<RoomListController> {
 
             final room = controller.rooms.reversed.toList()[index];
             return ListTile(
-              title: Text('채팅방 ${room.id}'),
-              subtitle: Text(room.createdAt?.toString() ?? ''),
+              title: Text('채팅방 ${room.id}', style: TextStyle(fontFamily: 'Retrosans'),),
+              subtitle: Text(room.createdAt?.toString() ?? '', style: TextStyle(fontFamily: 'Retrosans'),),
               onTap: () {
                 Get.to(() => ChatScreen(room: room),
                     binding: BindingsBuilder(() {
